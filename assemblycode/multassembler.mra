@@ -5,7 +5,7 @@
          INPUT     000
          STORE     #Y
 *
-#NONNEG  CLEAR     000
+         CLEAR     000
          LOAD      #Y
          SKIPCOND  400
          JUMP      #LOOP
