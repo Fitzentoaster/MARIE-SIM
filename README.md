@@ -26,6 +26,8 @@ for my own purposes and to make it easier to work.
 - Constants or machine code go in column 10, just like operations, but prefaced with a bang(!)
 - Lines starting with a * are ignored, this is exclusive to comments
 - Blank lines are NOT ALLOWED, including at the end of the file!
+- Addresses are required, even for instructions that don't use them... this is going to change
+- SKIPCOND is an interesting instruction: it only uses the beginning of the address provided. So the valid 'addresses' are 000 for skip on neg, 400 for skip on zero, and 800 for skip on pos, respectively.
 
 You can find an example of this Marie Assembly I've Cooked Up (MAICU) in the .mra files in the assembler folder. The multassembler.mra is the best example of how to format
 assembly code for this all-too-basic assembler.
