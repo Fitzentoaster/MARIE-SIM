@@ -1,0 +1,30 @@
+#BEGIN   CLEAR     000
+         STORE     #RESULT
+         INPUT     000
+         STORE     #X
+         INPUT     000
+         STORE     #Y
+*
+#NONNEG  CLEAR     000
+         LOAD      #Y
+         SKIPCOND  400
+         JUMP      #LOOP
+         JUMP      #HALT
+*
+#LOOP    LOAD      #RESULT
+         ADD       #X
+         STORE     #RESULT
+         LOAD      #Y
+         SUBT      #ONE
+         STORE     #Y
+         SKIPCOND  400
+         JUMP      #LOOP
+*
+#HALT    LOAD      #RESULT
+         OUTPUT    000
+         HALT      000
+*
+#X       !0000
+#Y       !0000
+#ONE     !0001
+#RESULT  !0000

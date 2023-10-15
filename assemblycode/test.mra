@@ -1,0 +1,8 @@
+#BEGIN   LOAD      #NUM1
+         ADD       #NUM2
+         SUBT      #NUM3
+         HALT      000
+*STORAGE GOES HERE
+#NUM1    !0023
+#NUM2    !ffe9
+#NUM3    !0000
