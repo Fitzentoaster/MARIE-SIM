@@ -14,9 +14,15 @@ the architecture more deeply and to work on my C++ skills.
 As of the initial posting, this software only supports hex machine code in a strict format (now there's an assembler!), and a lack of bugs is far from guaranteed.
 For more robust options including an assembly language, check out https://marie.js.org/
 
+# SIMULATOR INSTRUCTIONS
+Once it's compiled (I haven't included binaries but it should compile with anything, I've tested it using G++ on Windows) it's a simple command line program where the first argument is the machine language code to run.
+I've called them .mri files for now, but it should take any extension you like. I might change the extension, I have no idea if it's already in use. The program should run the machine code provided, and output
+any output to the console, then dump the main memory and registers upon completion. 
+
 # ASSEMBLER INSTRUCTIONS
 The code is wonky and needs a lot of work, but the assembler WIP will assemble code in the right format successfully. It's based loosely on IBM Assembler format but modified
-for my own purposes and to make it easier to work.
+for my own purposes and to make it easier to work. To use it once it's compiled, the first argument is the input file (the assembly code to assemble) and the second argument is the output location.
+NOTE The assembler is in a very early testing phase. Don't get mad that the code is so wonky!
 
 ## Format
 - Labels go in column 1, prefaced with a hashtag(#)
