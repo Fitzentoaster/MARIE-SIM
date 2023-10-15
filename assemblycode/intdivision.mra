@@ -1,0 +1,40 @@
+* PERFORM INTEGER DIVISION
+* RETURN THE QUOTIENT FIRST, REMAINDER SECOND
+#BEGIN   CLEAR     000
+*
+#INP1    INPUT     000
+         STORE     #DIVIS
+         INPUT     000
+         STORE     #DIVDND
+*
+#LOOP    LOAD      #DIVIS
+         SUBT      #DIVDND
+         STORE     #DIVIS
+         LOAD      #QTNT
+         ADD       #ONE 
+         STORE     #QTNT         
+         LOAD      #DIVIS        
+         SKIPCOND  800
+         JUMP      #DONE
+* Result is positive still
+         JUMP      #LOOP
+*
+#DONE    LOAD      #DIVIS
+         SKIPCOND  000
+         JUMP      #HALT
+         ADD       #DIVDND
+         STORE     #DIVIS 
+         LOAD      #QTNT 
+         SUBT      #ONE
+         STORE     #QTNT
+*
+#HALT    LOAD      #QTNT
+         OUTPUT    000
+         LOAD      #DIVIS
+         OUTPUT    000
+         HALT      000
+*
+#QTNT    !0000
+#DIVIS   !0000
+#DIVDND  !0000
+#ONE     !0001
