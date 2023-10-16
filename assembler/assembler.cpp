@@ -5,8 +5,8 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-#include <stdlib.h>
 
+// Trim the trailing whitespace from a given string
 void trim_string(std::string& in_string)
 {
     auto it = in_string.end();
@@ -18,6 +18,7 @@ void trim_string(std::string& in_string)
     }
 }
 
+// Parse a given operation and return the opcode
 short unsigned int parse_opcode(const std::string& operation)
 {
     std::map<std::string, unsigned short int> opcodemap;
@@ -38,16 +39,15 @@ short unsigned int parse_opcode(const std::string& operation)
     return opcodemap[operation];
 }
 
+// Input a string line of code, output the int for machine code
 short unsigned int parse_line(const std::string& line, std::map<std::string, unsigned short int>& symbol_table)
 {
     std::string operation;
     std::string address;
     unsigned short int opcode;
     unsigned short int addr;
-    std::cout << "LINE:" << line << std::endl;
     operation = line.substr(9, 8);
     trim_string(operation);
-    std::cout << "OPERATION:" << operation << std::endl;
     if (operation[0] == '!')
     {
         try 
@@ -62,7 +62,6 @@ short unsigned int parse_line(const std::string& line, std::map<std::string, uns
     opcode = parse_opcode(operation);
     address = line.substr(19);
     trim_string(address);
-    std::cout << "ADDRESS:" << address << std::endl;
     if (address[0] == '#')
     {
         address = address.substr(1);
@@ -82,6 +81,7 @@ short unsigned int parse_line(const std::string& line, std::map<std::string, uns
     return (opcode * 4096 + addr);
 }
 
+// Put together a symbol table for the second pass
 void first_pass(std::string& infilestr, std::map<std::string, unsigned short int>& symbol_table)
 {
     unsigned short int LC = 0x100;
@@ -109,10 +109,10 @@ void first_pass(std::string& infilestr, std::map<std::string, unsigned short int
     }
 }
 
+// Parse the existing code into machine code given the symbol table
 std::vector<unsigned short int> second_pass(std::string& infilestr, std::map<std::string, unsigned short int>& labels)
 {
     std::vector<unsigned short int> machine_code;
-    unsigned short int LC = 0x0;
     std::string line_buffer;
     std::ifstream infile;
     infile.open(infilestr);
@@ -131,6 +131,7 @@ std::vector<unsigned short int> second_pass(std::string& infilestr, std::map<std
     return machine_code;
 }
 
+// Output the machine code to the file specified
 void output_to_file(std::string& outfilestr, std::vector<unsigned short int> machine_code)
 {
     std::ofstream outfile(outfilestr);
@@ -140,7 +141,6 @@ void output_to_file(std::string& outfilestr, std::vector<unsigned short int> mac
         {
             outfile << std::hex << std::setw(4) << std::setfill('0') << x << "\n";
         }
-
     }
     else
     {
@@ -158,6 +158,5 @@ int main(int argc, char** argv)
     machine_code = second_pass(infilestr, symbol_table);
     output_to_file(outfilestr, machine_code);
     std::cout << "Program Assembled" << std::endl;
-    std::cin.get();  
     return 0;
 }
