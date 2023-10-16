@@ -66,6 +66,10 @@ class Marie
         //Dump Memory and end pgm
         void end_program()
         {
+            std::cout << "PRESS ENTER FOR PRG DUMP" << std::endl;
+            std::cin.clear();
+            std::cin.ignore();
+            std::cin.get();
             dump_main_memory();
             dump_registers();
             exit(EXIT_SUCCESS);
@@ -380,7 +384,8 @@ int main(int argc, char** argv)
     std::string infilestr(argv[1]);
     myMarie.load_main_memory(infilestr);
     std::cout << "Program Loaded. Press enter to run." << std::endl;
-    std::cin.get();    
+    std::cin.clear();
+    std::cin.ignore();
     myMarie.run_program();
     myMarie.end_program();
     return 0;
