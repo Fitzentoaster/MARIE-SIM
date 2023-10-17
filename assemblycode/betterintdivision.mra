@@ -1,0 +1,90 @@
+* PERFORM INTEGER DIVISION
+* RETURN THE QUOTIENT FIRST, REMAINDER SECOND
+* RETURNS ZERO ON DIVIDE BY ZERO 
+#BEGIN   CLEAR     000
+*
+#INP1    INPUT     000
+         STORE     #DIVIS
+         INPUT     000
+         STORE     #DIVDND
+*
+*TEST DIVISOR FOR NEGATIVE OR ZERO
+*
+#TEST1   LOAD      #DIVIS
+         SKIPCOND  800
+         JUMP      #TOPNPOS
+         JUMP      #TEST2
+#TOPNPOS LOAD      #DIVIS
+         SKIPCOND  000
+         JUMP      #DVSZERO
+         LOAD      #ONE
+         STORE     #TOPNEG
+         LOAD      #DIVIS
+         SUBT      #DIVIS
+         SUBT      #DIVIS
+         STORE     #DIVIS
+#TEST2   LOAD      #DIVDND
+         SKIPCOND  800
+         JUMP      #BOTNPOS
+         JUMP      #LOOP
+#BOTNPOS LOAD      #DIVDND
+         SKIPCOND  000
+         JUMP      #DVSZERO
+         LOAD      #ONE
+         STORE     #BOTNEG
+         LOAD      #DIVDND
+         SUBT      #DIVDND
+         SUBT      #DIVDND
+         STORE     #DIVDND
+         JUMP      #LOOP
+*
+#DVSZERO CLEAR     000
+         STORE     #DIVIS
+         STORE     #QTNT
+         JUMP      #HALT
+*
+#LOOP    LOAD      #DIVIS
+         SUBT      #DIVDND
+         STORE     #DIVIS
+         LOAD      #QTNT
+         ADD       #ONE 
+         STORE     #QTNT         
+         LOAD      #DIVIS        
+         SKIPCOND  800
+         JUMP      #DONE
+* Result is positive still
+         JUMP      #LOOP
+*
+#DONE    LOAD      #DIVIS
+         SKIPCOND  000
+         JUMP      #NEGATE
+         ADD       #DIVDND
+         STORE     #DIVIS 
+         LOAD      #QTNT 
+         SUBT      #ONE
+         STORE     #QTNT
+*
+#NEGATE  LOAD      #TOPNEG
+         ADD       #BOTNEG 
+         SKIPCOND  800
+         JUMP      #HALT
+         SUBT      #ONE
+         SKIPCOND  400
+         JUMP      #HALT
+         LOAD      #QTNT
+         SUBT      #QTNT 
+         SUBT      #QTNT
+         STORE     #QTNT 
+*
+#HALT    LOAD      #QTNT
+         OUTPUT    000
+         LOAD      #DIVIS
+         OUTPUT    000
+         HALT      000
+*
+#QTNT    !0000
+#DIVIS   !0000
+#DIVDND  !0000
+#TOPNEG  !0000
+#BOTNEG  !0000
+#ONE     !0001
