@@ -8,12 +8,13 @@
          INPUT     000
          STORE     #DIVDND
 *
-*TEST DIVISOR FOR NEGATIVE OR ZERO
+* TEST DIVISOR FOR NEGATIVE OR ZERO
 *
 #TEST1   LOAD      #DIVIS
          SKIPCOND  800
          JUMP      #TOPNPOS
          JUMP      #TEST2
+* TOP IS NOT POSITIVE
 #TOPNPOS LOAD      #DIVIS
          SKIPCOND  000
          JUMP      #DVSZERO
@@ -23,10 +24,12 @@
          SUBT      #DIVIS
          SUBT      #DIVIS
          STORE     #DIVIS
+* TEST DIVIDEND FOR NEGATIVE OR ZERO
 #TEST2   LOAD      #DIVDND
          SKIPCOND  800
          JUMP      #BOTNPOS
          JUMP      #LOOP
+* BOTTOM IS NOT POSITIVE
 #BOTNPOS LOAD      #DIVDND
          SKIPCOND  000
          JUMP      #DVSZERO
@@ -38,11 +41,12 @@
          STORE     #DIVDND
          JUMP      #LOOP
 *
+* DIVIDE BY ZERO OR DIVIDING ZERO
 #DVSZERO CLEAR     000
          STORE     #DIVIS
          STORE     #QTNT
          JUMP      #HALT
-*
+* ITERATIVE SUBTRACTION
 #LOOP    LOAD      #DIVIS
          SUBT      #DIVDND
          STORE     #DIVIS
@@ -52,9 +56,9 @@
          LOAD      #DIVIS        
          SKIPCOND  800
          JUMP      #DONE
-* Result is positive still
+* RESULT IS STILL POSITIVE
          JUMP      #LOOP
-*
+* LOOP IS DONE, SEE IF WE WENT TOO FAR
 #DONE    LOAD      #DIVIS
          SKIPCOND  000
          JUMP      #NEGATE
@@ -63,24 +67,35 @@
          LOAD      #QTNT 
          SUBT      #ONE
          STORE     #QTNT
-*
+* NEGATE THE QUOTIENT IF NECESSARY
 #NEGATE  LOAD      #TOPNEG
          ADD       #BOTNEG 
          SKIPCOND  800
-         JUMP      #HALT
+         JUMP      #TESTRMN
          SUBT      #ONE
          SKIPCOND  400
-         JUMP      #HALT
+         JUMP      #TESTRMN
          LOAD      #QTNT
          SUBT      #QTNT 
          SUBT      #QTNT
-         STORE     #QTNT 
-*
+         STORE     #QTNT
+* TEST FOR REMAINDER NEGATION
+#TESTRMN LOAD      #TOPNEG
+         ADD       #BOTNEG
+         SKIPCOND  800
+         JUMP      #HALT
+         LOAD      #DIVIS
+         SUBT      #DIVIS
+         SUBT      #DIVIS
+         STORE     #DIVIS
+* PROGRAM END, OUTPUT QUOTIENT AND REMAINDER
 #HALT    LOAD      #QTNT
          OUTPUT    000
          LOAD      #DIVIS
          OUTPUT    000
          HALT      000
+*
+* PROGRAM STORAGE
 *
 #QTNT    !0000
 #DIVIS   !0000
