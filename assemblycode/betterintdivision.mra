@@ -81,7 +81,6 @@
          STORE     #QTNT
 * TEST FOR REMAINDER NEGATION
 #TESTRMN LOAD      #TOPNEG
-         ADD       #BOTNEG
          SKIPCOND  800
          JUMP      #HALT
          LOAD      #DIVIS
