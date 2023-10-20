@@ -1,0 +1,47 @@
+* CALCULATE THE FIRST N DIGITS OF THE FIBONACCI SEQUENCE
+* N IS PROVIDED IN FIRST INPUT
+#BEGIN   CLEAR     000
+*
+* GET MAXDIGS
+         INPUT     000
+         STORE     #MAXDIGS
+*
+         LOAD      #NUM1
+         OUTPUT    000
+         LOAD      #MAXDIGS
+         SUBT      #ONE
+         STORE     #MAXDIGS
+         SKIPCOND  800
+         JUMP      #HALT
+         LOAD      #NUM2
+         OUTPUT    000
+         LOAD      #MAXDIGS
+         SUBT      #ONE
+         STORE     #MAXDIGS
+         SKIPCOND  800
+         JUMP      #HALT
+*
+#LOOP    LOAD      #NUM1
+         ADD       #NUM2
+         STORE     #NUM3
+         LOAD      #NUM2
+         STORE     #NUM1
+         LOAD      #NUM3
+         STORE     #NUM2
+         LOAD      #NUM3
+         OUTPUT    000
+         LOAD      #MAXDIGS
+         SUBT      #ONE
+         STORE     #MAXDIGS
+         SKIPCOND  800
+         JUMP      #HALT
+         JUMP      #LOOP
+#HALT    HALT      000
+*
+* PROGRAM STORAGE
+*
+#NUM1    !0000
+#NUM2    !0001
+#NUM3    !0000
+#MAXDIGS !000C
+#ONE     !0001
