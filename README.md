@@ -1,5 +1,6 @@
 # MARIE-SIM
 A constantly WIP Simulator for the MARIE architecture
+https://www.youtube.com/watch?v=V6Am1hbYUD4
 
 # What is MARIE?
 MARIE, standing for Machine Architecture that is Really Intuitive and Easy, is an educational, theoretical machine architecture
