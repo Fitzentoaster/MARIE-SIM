@@ -7,7 +7,7 @@ MARIE, standing for Machine Architecture that is Really Intuitive and Easy, is a
 created by Linda Null and Julia Lobur. 
 
 # Why are you making this?
-As of the initial commit in October of 2023, I'm in a Computer Systems and Architecture course at Northern Illinois University
+As of the initial commit(s) in October of 2023, I'm in a Computer Systems and Architecture course at Northern Illinois University
 that is taking a look at this architecture, and I'm working on this simulation for my own self-improvement to understand
 the architecture more deeply and to work on my C++ skills. 
 
@@ -21,8 +21,8 @@ I've called them .mri files for now, but it should take any extension you like. 
 any output to the console, then dump the main memory and registers upon completion. 
 
 # ASSEMBLER INSTRUCTIONS
-The code is wonky and needs a lot of work, but the assembler WIP will assemble code in the right format successfully. It's based loosely on IBM Assembler format but modified
-for my own purposes and to make it easier to work. To use it once it's compiled, the first argument is the input file (the assembly code to assemble) and the second argument is the output location.
+The code is wonky and needs a lot of work, but the assembler will assemble code in the right format successfully. It's based loosely on IBM Assembler format but modified
+for my own purposes and to make it easier to work with on my end. To use it once it's compiled, the first argument is the input file (the assembly code to assemble) and the second argument is the output location.
 NOTE The assembler is in a very early testing phase. Don't get mad that the code is so wonky!
 
 ## Format
@@ -36,5 +36,5 @@ NOTE The assembler is in a very early testing phase. Don't get mad that the code
 - Addresses are required, even for instructions that don't use them... this is going to change
 - SKIPCOND is an interesting instruction: it only uses the beginning of the address provided. So the valid 'addresses' are 000 for skip on neg, 400 for skip on zero, and 800 for skip on pos, respectively.
 
-You can find an example of this Marie Assembly I've Cooked Up (MAICU) in the .mra files in the assembler folder. The multassembler.mra is the best example of how to format
-assembly code for this all-too-basic assembler.
+You can find an example of this Marie Assembly I've Cooked Up (MAICU) in the .mra files in the assembler folder. The files betterintdivision.mra (for integer division) and gosub2.mra (for subroutines) will give you
+examples of most of what you need to program in MAICU
