@@ -1,0 +1,26 @@
+* SLIGHTLY MORE INTENSIVE SUBROUTINE EXAMPLE
+* TWOSUB TAKES THE INPUT VALUE AND MULTIPLIES INPUT
+* BY TWO ESSENTIALLY, BY ITERATIVE ADDITION
+         INPUT     000
+         STORE     #NUM2MLT
+         JNS       #TWOSUB
+         LOAD      #RESULT
+         OUTPUT    000
+         HALT      000
+*
+#TWOSUB  !0000
+#TWOLOOP LOAD      #RESULT
+         ADD       #TWO
+         STORE     #RESULT
+         LOAD      #NUM2MLT
+         SUBT      #ONE
+         STORE     #NUM2MLT
+         SKIPCOND  800         
+         JUMP      #ENDSUB
+         JUMP      #TWOLOOP
+#ENDSUB  JUMPI     #TWOSUB
+*
+#TWO     !0002
+#ONE     !0001
+#RESULT  !0000
+#NUM2MLT !0000
