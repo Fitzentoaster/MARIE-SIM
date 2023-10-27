@@ -1,0 +1,10 @@
+* SIMPLE SUBROUTINE EXAMPLE
+         JNS       #TWOS
+         OUTPUT    000
+         HALT      000
+*
+#TWOS    !0000
+         LOAD      #TWO
+         ADD       #TWO
+         JUMPI     #TWOS
+#TWO     !0002
