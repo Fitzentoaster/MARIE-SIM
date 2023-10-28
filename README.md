@@ -33,7 +33,7 @@ NOTE The assembler is in a very early testing phase. Don't get mad that the code
 - Constants or machine code go in column 10, just like operations, but prefaced with a bang(!)
 - Lines starting with a * are ignored, this is exclusive to comments
 - Blank lines are NOT ALLOWED, including at the end of the file!
-- Addresses are required, even for instructions that don't use them... this is going to change
+- Addresses are not required for INPUT, OUTPUT, HALT, and CLEAR
 - SKIPCOND is an interesting instruction: it only uses the beginning of the address provided. So the valid 'addresses' are 000 for skip on neg, 400 for skip on zero, and 800 for skip on pos, respectively.
 
 You can find an example of this Marie Assembly I've Cooked Up (MAICU) in the .mra files in the assembler folder. The files betterintdivision.mra (for integer division) and gosub2.mra (for subroutines) will give you
