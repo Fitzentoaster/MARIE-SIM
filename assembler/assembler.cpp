@@ -3,7 +3,6 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <iomanip>
 
 // Trim the trailing whitespace from a given string
@@ -60,22 +59,25 @@ short unsigned int parse_line(const std::string& line, std::map<std::string, uns
         }
     }
     opcode = parse_opcode(operation);
-    address = line.substr(19);
-    trim_string(address);
-    if (address[0] == '#')
+    if (operation != "INPUT" && operation != "OUTPUT" && operation != "HALT" && operation != "CLEAR")
     {
-        address = address.substr(1);
-        addr = symbol_table[address];
-    }
-    else
-    {
-        try 
+        address = line.substr(19);
+        trim_string(address);
+        if (address[0] == '#')
         {
-            addr = std::stoi(address, nullptr, 16);
+            address = address.substr(1);
+            addr = symbol_table[address];
         }
-        catch(...)
+        else
         {
-            std::cout << "stoi error" << std::endl;
+            try 
+            {
+                addr = std::stoi(address, nullptr, 16);
+            }
+            catch(...)
+            {
+                std::cout << "INVALID ADDR ERROR" << std::endl;
+            }
         }
     }
     return (opcode * 4096 + addr);
@@ -103,7 +105,6 @@ void first_pass(std::string& infilestr, std::map<std::string, unsigned short int
                 trim_string(label);
                 symbol_table[label] = LC;
             }
-
             ++LC;
         }
     }
