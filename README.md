@@ -8,8 +8,8 @@ created by Linda Null and Julia Lobur.
 
 # Why are you making this?
 As of the initial commit(s) in October of 2023, I was in a Computer Systems and Architecture course at Northern Illinois University
-that is taking a look at this architecture, and I'm working on this simulation for my own self-improvement to understand
-the architecture more deeply and to work on my C++ skills. 
+that was taking a look at this architecture. I'm working on this simulation for my own self-improvement to understand
+the architecture more deeply, to learn more about assembly and computer architecture in general, and to work on my C++ skills. 
 
 # SIMULATOR INSTRUCTIONS
 Once it's compiled (I haven't included binaries but it should compile with anything, I've tested it using G++ on Windows) it's a simple command line program where the first argument is the machine language code to run.
