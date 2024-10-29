@@ -149,6 +149,7 @@ void output_to_file(std::string& outfilestr, std::vector<unsigned short int> mac
     }
 }
 
+// Main Function
 int main(int argc, char** argv)
 {
     std::string infilestr(argv[1]);
