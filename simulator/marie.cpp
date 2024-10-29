@@ -23,12 +23,14 @@
 #define ADDI 0xB
 #define JUMPI 0xC
 
+// Structure for an instruction
 struct Instruction
 {
     unsigned short int opcode;
     unsigned short int addr;
 };
 
+// Main Marie class
 class Marie
 {
     private:
@@ -378,6 +380,7 @@ class Marie
         }
 };
 
+// Main Function
 int main(int argc, char** argv)
 {
     Marie myMarie;
