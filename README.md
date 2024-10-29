@@ -7,13 +7,9 @@ MARIE, standing for Machine Architecture that is Really Intuitive and Easy, is a
 created by Linda Null and Julia Lobur. 
 
 # Why are you making this?
-As of the initial commit(s) in October of 2023, I'm in a Computer Systems and Architecture course at Northern Illinois University
+As of the initial commit(s) in October of 2023, I was in a Computer Systems and Architecture course at Northern Illinois University
 that is taking a look at this architecture, and I'm working on this simulation for my own self-improvement to understand
 the architecture more deeply and to work on my C++ skills. 
-
-# Other Options
-As of the initial posting, this software only supports hex machine code in a strict format (now there's an assembler to go with it), and a lack of bugs is far from guaranteed.
-For more robust options check out https://marie.js.org/
 
 # SIMULATOR INSTRUCTIONS
 Once it's compiled (I haven't included binaries but it should compile with anything, I've tested it using G++ on Windows) it's a simple command line program where the first argument is the machine language code to run.
