@@ -17,7 +17,7 @@ I've called them .mri files for now, but it should take any extension you like. 
 any output to the console, then dump the main memory and registers upon completion. 
 
 # ASSEMBLER INSTRUCTIONS
-The code is wonky and needs a lot of work, but the assembler will assemble code in the right format successfully. It's based loosely on IBM Assembler format but modified
+The assembly language is based loosely on IBM Assembler format but modified
 for my own purposes and to make it easier to work with on my end. To use it once it's compiled, the first argument is the input file (the assembly code to assemble) and the second argument is the output location.
 
 ## Format
