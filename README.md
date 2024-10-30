@@ -1,5 +1,5 @@
 # MARIE-SIM
-A constantly WIP Simulator for the MARIE architecture
+A Simulator and Assembler for the MARIE architecture
 https://www.youtube.com/watch?v=V6Am1hbYUD4
 
 # What is MARIE?
