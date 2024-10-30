@@ -12,7 +12,7 @@ that was taking a look at this architecture. I'm working on this simulation for 
 the architecture more deeply, to learn more about assembly and computer architecture in general, and to work on my C++ skills. 
 
 # SIMULATOR INSTRUCTIONS
-Once it's compiled (I haven't included binaries but it should compile with anything, I've tested it using G++ on Windows) it's a simple command line program where the first argument is the machine language code to run.
+Once it's compiled (I haven't included binaries but it should compile with anything, I've tested it using G++ on Windows and Linux) it's a simple command line program where the first argument is the machine language code to run.
 I've called them .mri files for now, but it should take any extension you like. The program should run the machine code provided, and output
 any output to the console, then dump the main memory and registers upon completion. 
 
